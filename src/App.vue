@@ -4,7 +4,7 @@
       <div v-if="accessToken && userData" class="nav-content">
         <button class="btn btn-secondary" @click="logout">LOG OUT</button>
         <p class="username">{{userData.id}}</p>
-        <img class="user-image" :src="userData.images[0].url">
+        <img v-if="userData.images" class="user-image" :src="userData.images[0].url">
       </div>
     </div>
     <div class="container">
@@ -144,7 +144,6 @@ export default {
   methods: {
     fetchAccessToken(refresh) {
       if (!this.accessTokenPromise) {
-        console.log('fetching token')
         this.accessTokenPromise = fetch(
           this.server + (refresh ? '/refreshToken' : '/accessToken'),
           this.serverFetchOptions
