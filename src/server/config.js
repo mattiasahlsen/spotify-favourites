@@ -19,7 +19,7 @@ env.config({ path: path.join(__dirname, '../../.env') })
 const config = {
   protocol: process.env.VUE_APP_PROTOCOL || 'http',
   port: process.env.VUE_APP_PORT || 3000,
-  host: process.env.VUE_AP_HOST || 'localhost',
+  host: process.env.VUE_APP_HOST || 'localhost',
 
 
   sessionMaxAge: 1000 * 3600 * 24, // 24 hours
@@ -30,6 +30,6 @@ const config = {
   clientSecret: process.env.CLIENT_SECRET,
 }
 config.server = `${config.protocol}://${config.host}:${config.port}`
-config.origin = development ? 'http://localhost:8080' : config.server
+config.origin = development ? 'http://localhost:8080' : process.env.VUE_APP_ORIGIN
 
 module.exports = config

@@ -14,7 +14,9 @@ const generateRandomString = length => {
   return text
 }
 
-const redirectUri = config.server + '/callback'
+const dev = process.env.NODE_ENV === 'development'
+
+const redirectUri = (dev ? config.server : config.origin) + '/callback'
 
 const stateKey = 'spotify_auth_state'
 const accessTokenKey = 'spotify_access_token'

@@ -78,6 +78,8 @@ timeRanges[SHORT_TERM] = null
 timeRanges[MEDIUM_TERM] = null
 timeRanges[LONG_TERM] = null
 
+const development = process.env.NODE_ENV === 'development'
+
 export default {
   name: 'app',
   components: {
@@ -104,7 +106,7 @@ export default {
       topTracksPromise: { ...timeRanges },
       topArtistsPromise: { ...timeRanges },
 
-      server: serverConfig.server,
+      server: development ? serverConfig.server : serverConfig.origin,
     }
   },
   computed: {
@@ -160,7 +162,6 @@ export default {
       } else return this.accessTokenPromise
     },
     refreshAccessToken() {
-      console.log('Refreshing token.')
       return this.fetchAccessToken(true)
     },
     fetchUserData() {
@@ -196,7 +197,7 @@ export default {
       return this.topArtistsPromise[timeRange]
     },
     logout() {
-      fetch(serverConfig.server + '/logout', this.serverFetchOptions).then(resp => {
+      fetch(this.server + '/logout', this.serverFetchOptions).then(resp => {
         this.accessToken = null
       })
     },
