@@ -1,5 +1,8 @@
 # spotify-app
 
+## deployed on
+https://spotifyfavourites.com
+
 ## Project setup
 ```
 yarn install
