@@ -5,9 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <meta property="og:type" content="website" />
     <meta property="og:image" content="<%= BASE_URL %>preview.png" />
+    <meta property="og:url" content="<%= BASE_URL %>" />
+    <meta property="og:title" content="Spotify Favourites" />
+    <meta property="fb:app_id" content="593568328069661" />
     <title>Spotify Favourites</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet"> 
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93222190-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-93222190-2');
+    </script>
+
   </head>
   <body>
     <noscript>
