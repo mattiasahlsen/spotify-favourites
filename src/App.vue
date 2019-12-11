@@ -4,7 +4,7 @@
       <div v-if="accessToken && userData" class="nav-content">
         <button class="btn btn-secondary" @click="logout">LOG OUT</button>
         <p class="username">{{userData.id}}</p>
-        <img v-if="userData.images" class="user-image" :src="userData.images[0].url">
+        <img v-if="userData.images && userData.images.length > 0" class="user-image" :src="userData.images[0].url">
       </div>
     </div>
     <div class="container">
@@ -35,7 +35,7 @@
                   <p class="popularity">Popularity on Spotify: <strong :style="{ color: popularity(track.popularity) }">{{track.popularity}}</strong></p>
                 </div>
                 <div>
-                  <img :src="track.album.images[2].url">
+                  <img v-if="track.album.images && track.album.images.length === 3" :src="track.album.images[2].url">
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@
                   <p class="popularity">Popularity on Spotify: <strong :style="{ color: popularity(artist.popularity) }">{{artist.popularity}}</strong></p>
                 </div>
                 <div>
-                  <img :src="artist.images[2].url">
+                  <img v-if="artist.images && artist.images.length === 3" :src="artist.images[2].url">
                 </div>
               </div>
             </div>
