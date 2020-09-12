@@ -16,7 +16,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "querystring": "^0.2.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
